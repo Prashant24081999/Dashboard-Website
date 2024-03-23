@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-message {
+            margin-bottom: 10px;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            max-width: 70%;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            max-width: 70%;
+            align-self: flex-start;
+        }
+        .input-group {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 75px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 70px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div id="chat"></div>
+        <div class="input-group">
+            <input type="text" id="message" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Define bot responses
+        const responses = {
+            "hi": "Hello!",
+            "how are you": "I'm doing well, thank you!",
+            "what's your name": "I'm just a simple chatbot.",
+            "bye": "Goodbye!",
+            "default": "I'm sorry, I didn't understand that."
+        };
+
+        // Function to send user message and receive bot response
+        function sendMessage() {
+            const messageInput = document.getElementById('message');
+            const message = messageInput.value.trim();
+            if (message !== '') {
+                displayMessage(message, 'user');
+                messageInput.value = '';
+                const response = responses[message.toLowerCase()] || responses['default'];
+                displayMessage(response, 'bot');
+            }
+        }
+
+        // Function to display messages in chat interface
+        function displayMessage(message, sender) {
+            const chat = document.getElementById('chat');
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.classList.add('chat-message', sender + '-message');
+            chat.appendChild(messageElement);
+            // Scroll to bottom of chat
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>

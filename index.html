@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INC InnovateHub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="company-info">
+        <img src="logo.png" alt="Company Logo" style="width: 56px; border-radius: 6px; margin-left: -16px;">
+        <div class="company-name">
+          <h3 style="font-size: 0.80rem; font-weight: 100; color: #8a8a8a;">INC</h3>
+          <h2 style="margin-top: 2px; font-size: 0.80rem; font-weight: bold;">InnovateHub</h2>
+        </div>
+      </div>
+      <div class="profile-info">
+        <img src="profile-image.jpg" alt="Profile Image" id="profile-image" class="profile-image">
+      </div>
+    </div>
+    <div class="profile-dialog" id="profile-dialog">
+        <div class="profile-content">
+            <h3>Prashant Shukla</h3>
+            <p>prashantshukla1999@gmail.com</p>
+            <p>Subscription: <span style="border: 1px solid rgb(7, 190, 7); border-radius: 10px; padding: 5px; background-color: rgb(4, 180, 39); color: aliceblue;">Premium</span></p>
+            <button type="button" class="btn btn-danger" style="position: relative; left:66px">Sign Out</button>
+        </div>
+    </div>
+    <div class="teams">
+        <div class="list-group" id="teamList">
+            <a href="#" class="list-group-item list-group-item-action" aria-current="true"><i class="fa-solid fa-pen-nib"></i>
+              Design Team  <span class="team-members">+5</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action"><i class="fa-solid fa-chart-simple"></i>Marketing Team  <span class="team-members">+6</span></a>
+            <a href="#" class="list-group-item list-group-item-action"><i class="fa-solid fa-code"></i>Dev Team  <span class="team-members">+2</span></a>
+          </div>
+          <button class="create-team-btn" onclick="showNewTeamInput()"><i class="fa-solid fa-user-plus" style="margin-right: 8px;"></i>Create a Team</button>
+            <div id="newTeamInputContainer" style="display: none;">
+                <input type="text" id="newTeamInput" placeholder="Enter new team name">
+                <input type="number" id="teamMembersInput" placeholder="Number of team members">
+                <button onclick="addNewTeam()" >Add Team</button>    
+            </div>
+    </div>
+    <div class="folders" style="border:1px solid #ccc;border-radius:10px;
+    width:245px;
+    margin-top:10px;
+    padding: 20px;">
+        <h3>Folders</h3>
+        <ul class="folder-branch" id="folderBranch">
+            <li class="folder">
+              <span class="folder-name"><span></span><i class="fa-regular fa-folder" style="margin-right: 5px;"></i>Products</span>
+              <ul class="subfolder-branch">
+                <li class="subfolder">
+                  <span Sclass="subfolder-name">Roadmap</span>
+                </li>
+                <li class="subfolder">
+                  <span class="subfolder-name">Feedback</span>
+                </li>
+                <li class="subfolder">
+                    <span class="subfolder-name">Performance</span>
+                  </li>
+                  <li class="subfolder">
+                    <span class="subfolder-name">Team</span>
+                  </li>
+                  <li class="subfolder">
+                    <span class="subfolder-name">Analytics</span>
+                  </li>
+              </ul>
+            </li>
+            <li class="folder">
+              <span class="folder-name"><i class="fa-regular fa-folder" style="margin-right: 5px;"></i>Sales</span>
+              <ul class="subfolder-branch">
+                <li class="subfolder">
+                  <span class="subfolder-name">Add new sub</span>
+                  <ul class="subfolder-branch">
+                    <li class="sub-subfolder">
+                      <span class="folder-name">Sub-subfolder 1</span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="folder">
+                <span class="folder-name"><i class="fa-regular fa-folder" style="margin-right: 5px;"></i>Design</span>
+                <ul class="subfolder-branch">
+                  <li class="subfolder">
+                    <span class="subfolder-name">Add new sub</span>
+                    <ul class="subfolder-branch">
+                      <li class="sub-subfolder">
+                        <span class="folder-name">Sub-subfolder 1</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="folder">
+                <span class="folder-name"><i class="fa-regular fa-folder" style="margin-right: 5px;"></i>Office</span>
+                <ul class="subfolder-branch">
+                  <li class="subfolder">
+                    <span class="subfolder-name">Add new sub</span>
+                    <ul class="subfolder-branch">
+                      <li class="sub-subfolder">
+                        <span class="folder-name">Sub-subfolder 1</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="folder">
+                <span class="folder-name"><i class="fa-regular fa-folder" style="margin-right: 5px;"></i>Legal</span>
+                <ul class="subfolder-branch">
+                  <li class="subfolder">
+                    <span class="subfolder-name">Add new sub</span>
+                    <ul class="subfolder-branch">
+                      <li class="sub-subfolder">
+                        <span class="folder-name">Sub-subfolder 1</span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+          </ul>
+            
+      </div>
+      <div class="sidebar-footer">
+        <button><i class="fas fa-users" style="margin-right: 8px;"></i>Invite teammates</button>
+        <button><i class="fas fa-question-circle" style="margin-right: 8px;"></i>Help and first steps</button>
+        <button style="border: 1px solid #dadada; padding: 6px; background-color: #dadada;"><span style="border: 1px solid rgb(253, 253, 253); border-radius: 5px; background-color: rgb(255, 255, 255); padding: 3px;">7</span> days left on trail<span class="add-billing" style="border: 1px solid rgb(41, 40, 40); color: aliceblue; background-color: rgb(41, 40, 40); border-radius: 6px; padding: 3px; margin-left: 15px;">Add billing</span></button>
+      </div>
+  </div>
+
+  <div class="main-content">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand">Products</a>
+            <form class="d-flex">
+                <div class="input-group" style="position: relative; left: 260px;">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input class="form-control" type="search" id="searchInput" placeholder="Search for..." aria-label="Search">
+                </div>
+            </form>
+            <div class="button-container">
+                <a href="chat-support-page.html" class="chat hover-chat-settings"style="border:2px solid black; padding:3px; color:black;border-radius: 8px;"><i class="fa-regular fa-comments"></i></a>
+                <a href="settings.html" class="hover-chat-settings"style="border:2px solid black; padding:3px; color:black; border-radius: 8px;"><i class="fa-solid fa-gear"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="subNavbar">
+        <nav class="navbar bg-body-tertiary">
+            <form class="container-fluid justify-content-between">
+                <div class="d-flex">
+                <button class="btn btn-sm btn-outline-secondary hover-effect" style="margin-right: 12px; color: black; border: 2px solid black; border-radius: 7px;"type="button"><i class="fa-solid fa-table-cells-large" style="margin-right: 5px;"></i>All brands <i class="fa-solid fa-sort-down" style="margin-left: 2px;"></i></button>
+              <button class="btn btn-sm btn-outline-secondary hover-effect" style="margin-right: 12px; color: black; border: 2px solid black; border-radius: 7px;"type="button">Desk <i class="fa-solid fa-sort-down" style="margin-left: 2px;"></i></button>
+              <button class="btn btn-sm btn-outline-secondary hover-effect" style="margin-right: 12px; color: black; border: 2px solid black; border-radius: 7px;" type="button">Tags <i class="fa-solid fa-sort-down" style="margin-left: 2px;" ></i></button>
+              <button class="btn btn-sm btn-outline-secondary" style="margin-right: 12px;" type="button"><i class="fa-solid fa-arrow-down-1-9" style="margin-right: 5px;"></i>Sort</button>
+              <button class="btn btn-sm btn-outline-secondary" type="button"><i class="fa-solid fa-filter" style="margin-right: 5px;"></i>Filter</button>
+            </div>
+            <div class="d-flex">
+              <button class="btn btn-sm btn-outline-secondary" style="margin-right: 12px; color: black; border: 2px solid black; border-radius: 7px;" type="button"><i class="fa-solid fa-handshake-simple" ></i>Meeting</button>
+              <button class="btn btn-sm btn-outline-secondary" style="margin-right: 12px; color: black; border: 2px solid black; border-radius: 7px;" type="button"><i class="fa-solid fa-file-import" ></i>Import/Export</button>
+            </div>
+            </form>
+          </nav>
+    </div>
+    <div class="container mt-4">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Brands</th>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Description</th>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Members</th>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Categories</th>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Tags</th>
+                    <th class="th" style="color: #8a8a8a; font-weight: 400;">Next Meeting</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="wix_logo.jpg" alt="Wix Logo" class="company-logo">
+                        Wix
+                    </td>
+                    <td>Develop a personalized tracker</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-automation">Automation</span></td>
+                    <td>
+                        <span class="tags">#Design</span>
+                        <span class="tags">#Innovation</span>
+                    </td>
+                    <td><span class="in30mins">in 30 minutes</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="shopify_logo.png" alt="Shopify Logo" class="company-logo">
+                        Shopify
+                    </td>
+                    <td>Design a new storefront theme</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-e-commerce">E-Commerce</span></td>
+                    <td>
+                        <span class="tags">#Cart</span>
+                    </td>
+                    <td><span class="tomorrow">Tomorrow</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox"  class="brand-checkbox" >
+                        <img src="google_logo.png" alt="Google Logo" class="company-logo">
+                        Google
+                    </td>
+                    <td>Implement new search algorithm</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member5.jpeg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-technology">Technology</span></td>
+                    <td> 
+                        <span class="tags">#SearchEngine</span>
+                        <span class="tags">#AI</span>
+                    </td>
+                    <td><span class="next-week">Next week</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="apple_logo.png" alt="Apple Logo" class="company-logo">
+                        Apple
+                    </td>
+                    <td>Develop a new iPhone feature</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member2.jpeg" alt="Member 1" class="member-image">
+                        <img src="member3.jpeg" alt="Member 1" class="member-image"><img src="member4.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-mobile">Mobile</span></td>
+                    <td><span class="tags">#iOS</span></td>
+                    <td><span class="next-month">Next month</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="microsoft_logo.jpg" alt="Microsoft Logo" class="company-logo">
+                        Microsoft
+                    </td>
+                    <td>Upgrade cloud infrastructure</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member4.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-cloud-computing">Cloud Computing</span></td>
+                    <td><span class="tags">#Azure</span></td>
+                    <td><span class="next-week">Next week</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="amazon_logo.png" alt="Amazon Logo" class="company-logo">
+                        Amazon
+                    </td>
+                    <td>Expand Prime delivery network</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member2.jpeg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-logistics">Logistics</span></td>
+                    <td><span class="tags">#Ecommerce</span></td>
+                    <td><span class="next-month">Next month</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="netflix_logo.png" alt="Netflix Logo" class="company-logo">
+                        Netflix
+                    </td>
+                    <td>Develop new recommendation algorithm</td>
+                    <td><img src="member3.jpeg" alt="Member 1" class="member-image">
+                        <img src="member1.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-entertainment">Entertainment</span></td>
+                    <td><span class="tags">#Streaming</span></td>
+                    <td><span class="next-week">Next week</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="facebook_logo.png" alt="Facebook Logo" class="company-logo">
+                        Facebook
+                    </td>
+                    <td>Enhance privacy features</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member6.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-social-media">Social Media</span></td>
+                    <td ><span class="tags">#Privacy</span><span class="tags">#Metaverse</span></td>
+                    <td><span class="no-contact">No contact</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" 
+                        onclick="toggleRowSelection(this)"
+                        >
+                        <img src="tesla_logo.png" alt="Tesla Logo" class="company-logo">
+                        Tesla
+                    </td>
+                    <td>Launch new electric vehicle model</td>
+                    <td><img src="member2.jpeg" alt="Member 1" class="member-image">
+                        <img src="member3.jpeg" alt="Member 1" class="member-image">
+                        <img src="member4.jpg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-automation">Automation</span></td>
+                    <td><span class="tags">#ElectricCars</span><span class="tags">#Emerging</span></td>
+                    <td><span class="next-month">Next month</span></td>
+                </tr>
+                <tr class="brand-row">
+                    <td>
+                        <input type="checkbox" class="brand-checkbox" >
+                        <img src="adobe_logo.png" alt="Adobe Logo" class="company-logo">
+                        Adobe
+                    </td>
+                    <td>Release updates for Creative Cloud</td>
+                    <td><img src="member1.jpg" alt="Member 1" class="member-image">
+                        <img src="member2.jpeg" alt="Member 1" class="member-image">
+                    </td>
+                    <td><span class="category-software">Software</span></td>
+                    <td><span class="tags">#DesignTools</span><span class="tags">#SaaS</span></td>
+                    <td><span class="no-contact">No contact</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+           <div class="col-md-5">
+            <div class="buttons-section">
+        <button class="func-btn"><span id="selectedCount" style="border: 1px solid black; border-radius: 3px; color: azure; background-color: black; padding: 3px; margin-right: 5px;">0</span>selected</button>
+        <button class="func-btn"><i class="fa-solid fa-box-archive" style="margin-right: 5px;"></i>Archive</button>
+        <button class="del-btn"> <i class="fa-regular fa-trash-can" style="margin-right: 5px;"></i>Delete</button>
+        <button class="func-btn">More <i class="fa-solid fa-caret-down" style="margin-left: 2px;"></i></button>
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
